@@ -1,2 +1,0 @@
-Hello, this is just some random text in a random file.
-This is for the purpose of demonstrating my Python abilites
