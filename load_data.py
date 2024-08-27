@@ -26,7 +26,7 @@ def load_data(file_path):
         return None
 
 
-data = load_data('weather_data.csv')
+data = load_data('weather_data/Weather Test Data.csv')
 
 if data is not None:
     print(data.head())
