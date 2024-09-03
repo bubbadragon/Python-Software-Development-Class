@@ -1,0 +1,3 @@
+include see_data/*.py
+include README.md
+include LICENSE
