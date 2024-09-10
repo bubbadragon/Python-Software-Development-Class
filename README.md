@@ -1,17 +1,31 @@
-# Week 1 Assignment: Data Handling with Python
+# Python Programming Semester Project 
 
 ## Introduction
-This project involves setting up a Python development environment, downloading a dataset from Kaggle, reading the data, and documenting the process.
+This project focuses on data handling using Python, including reading, processing, and saving a dataset using Object-Oriented Programming (OOP) principles. The script is designed to load weather data from a CSV file, process it by performing various operations, and save the processed data in different formats.
 
 ## Dataset
-I chose the Weather Data from Kaggle, which contains Synthetic Dataset: Explore Weather Patterns & Predictions in 10 Locations..
+The dataset used for this project is the Weather Data from Kaggle, which includes a synthetic dataset that explores weather patterns and predictions across 10 locations.
 
 ## Setup
 To run this project, you need to have Python and the following packages installed:
 - pandas
+- matplotlib
+
+## File Structure
+- see_pandas.py: This is the main script that handles data loading, processing, and saving using OOP principles.
+- weather_data: The weather dataset used for this project.
+- README.md: Documentation
+- load_data.html: Automatically generated documentation for the project code.
 
 ## Usage
-Run `load_dataset.py` to load the data and perform basic operations.
+To load, process, and save the dataset, follow these steps:
 
-## Documentation
-Documentation for this project can be found in the `load_dataset.html` file, generated using Pydoc.
+1. **Load Data**:
+   The `DataFetcher` class is responsible for loading the weather data from a CSV file. You can adjust the file path in the script to point to your data source.
+
+2. **Process Data**:
+   The `DataProcessor` class allows you to describe the dataset, show the first few rows, or generate visualizations.
+
+3. **Save Data**:
+   The `DataStorage` class saves the processed data to CSV, JSON, or Excel formats.
+
