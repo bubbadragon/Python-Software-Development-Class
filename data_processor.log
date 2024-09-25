@@ -8,3 +8,244 @@
 2024-09-17 17:43:24,424 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
 2024-09-17 17:43:24,491 - logger_setup - INFO - Data processing started...
 2024-09-17 17:43:25,050 - logger_setup - INFO - Data processing completed.
+2024-09-24 15:24:57,053 - logger_setup - INFO - Starting the data processing workflow...
+2024-09-24 15:24:57,315 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-24 15:24:57,537 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-24 15:24:57,537 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 15:24:57,633 - logger_setup - INFO - Data processing started...
+2024-09-24 15:24:57,744 - logger_setup - ERROR - Error saving data: name 'f' is not defined
+2024-09-24 15:24:57,744 - logger_setup - INFO - Data processing completed.
+2024-09-24 15:26:59,579 - logger_setup - INFO - Starting the data processing workflow...
+2024-09-24 15:26:59,733 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-24 15:26:59,929 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-24 15:26:59,947 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 15:27:00,074 - logger_setup - INFO - Data processing started...
+2024-09-24 15:27:00,861 - logger_setup - INFO - Data successfully saved to output.csv
+2024-09-24 15:27:00,861 - logger_setup - INFO - Data processing completed.
+2024-09-24 16:20:50,664 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 16:20:50,666 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 16:20:50,676 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 16:20:50,677 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 16:20:50,677 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 16:36:40,392 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 16:36:40,394 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 16:36:40,403 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 16:36:40,404 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 16:36:40,405 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 16:46:45,288 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 16:46:45,290 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 16:46:45,302 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 16:46:45,303 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 16:46:45,303 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:02:53,800 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:02:53,801 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:02:53,802 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:02:53,803 - logger_setup - ERROR - Error - The file test.csv is empty
+2024-09-24 17:02:53,806 - logger_setup - ERROR - Error - Error parsing the file: test.csv
+2024-09-24 17:02:53,807 - logger_setup - ERROR - Error - An unexpected error occured: 
+2024-09-24 17:02:53,811 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:02:53,811 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:02:53,837 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:02:53,838 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:02:53,856 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:02:53,857 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:02:53,858 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:02:53,858 - logger_setup - ERROR - Error saving data: No module named 'xlsxwriter'
+2024-09-24 17:02:53,860 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:08:36,575 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:08:36,577 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:08:36,578 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:08:36,579 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:08:36,580 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:08:36,583 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:08:36,583 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:08:36,584 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:08:36,584 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:08:36,594 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:08:36,594 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:08:36,595 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:08:36,598 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:08:36,599 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:10:27,874 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:10:27,875 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:10:27,876 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:10:27,877 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:10:27,877 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:10:27,881 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:10:27,881 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:10:27,882 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:10:27,882 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:10:27,890 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:10:27,891 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:10:27,892 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:10:27,894 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:10:27,895 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:11:33,007 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:11:33,015 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:11:33,019 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:11:33,020 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:11:33,021 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:11:33,027 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:11:33,027 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:11:33,028 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:11:33,028 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:11:33,047 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:11:33,050 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:11:33,051 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:11:33,055 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:11:33,057 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:11:33,057 - logger_setup - ERROR - Error saving data: Invalid file type: txt
+2024-09-24 17:13:36,233 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:13:36,235 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:13:36,235 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:13:36,236 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:13:36,237 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:13:36,241 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:13:36,241 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:13:36,242 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:13:36,242 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:13:36,248 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:13:36,249 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:13:36,250 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:13:36,253 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:13:36,254 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:13:36,254 - logger_setup - ERROR - Error saving data: Invalid file type: txt
+2024-09-24 17:16:49,079 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:16:49,081 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:16:49,081 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:16:49,082 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:16:49,083 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:16:49,087 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:16:49,087 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:16:49,088 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:16:49,088 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:16:49,095 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:16:49,095 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:16:49,095 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 17:16:49,096 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:16:49,096 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 17:16:49,099 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:16:49,099 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 17:16:49,100 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:56:27,069 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:56:27,071 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:56:27,071 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:56:27,072 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:56:27,073 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:56:27,078 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:56:27,078 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:56:27,079 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:56:27,079 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:56:27,087 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:56:27,087 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:56:27,087 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 17:56:27,088 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:56:27,088 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 17:56:27,091 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:56:27,091 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 17:56:27,092 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 17:59:36,617 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:59:36,618 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 17:59:36,619 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 17:59:36,619 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 17:59:36,620 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 17:59:36,625 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 17:59:36,626 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 17:59:36,626 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 17:59:36,626 - logger_setup - ERROR - No data available to process.
+2024-09-24 17:59:36,633 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 17:59:36,633 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 17:59:36,633 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 17:59:36,634 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 17:59:36,634 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 17:59:36,637 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 17:59:36,637 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 17:59:36,638 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:01:01,959 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:01:01,961 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 18:01:01,961 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 18:01:01,962 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 18:01:01,963 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 18:01:01,968 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:01:01,968 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 18:01:01,969 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 18:01:01,969 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:01:01,975 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 18:01:01,976 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 18:01:01,976 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 18:01:01,977 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 18:01:01,977 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 18:01:01,980 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 18:01:01,980 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 18:01:01,981 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:02:51,622 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:02:51,624 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 18:02:51,624 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 18:02:51,625 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 18:02:51,625 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 18:02:51,631 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:02:51,631 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 18:02:51,633 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 18:02:51,633 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:02:51,662 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 18:02:51,663 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 18:02:51,663 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 18:02:51,663 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 18:02:51,663 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 18:02:51,666 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 18:02:51,666 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 18:02:51,667 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:04:11,316 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:04:11,318 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 18:04:11,318 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 18:04:11,319 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 18:04:11,320 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 18:04:11,325 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:04:11,325 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 18:04:11,326 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 18:04:11,326 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:04:11,333 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 18:04:11,333 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 18:04:11,334 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 18:04:11,334 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 18:04:11,334 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 18:04:11,337 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 18:04:11,337 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 18:04:11,338 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:05:47,138 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:05:47,139 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 18:05:47,140 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 18:05:47,140 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 18:05:47,141 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 18:05:47,147 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:05:47,147 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 18:05:47,148 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 18:05:47,148 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:05:47,156 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 18:05:47,156 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:05:47,157 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 18:05:47,157 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 18:05:47,158 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 18:05:47,158 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 18:05:47,161 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 18:05:47,161 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 18:05:47,162 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:07:00,807 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:07:00,808 - logger_setup - ERROR - Error - File not found: non_existent.csv
+2024-09-24 18:07:00,809 - logger_setup - ERROR - Error - The file empty.csv is empty
+2024-09-24 18:07:00,810 - logger_setup - ERROR - Error - Error parsing the file: corrupt.csv
+2024-09-24 18:07:00,810 - logger_setup - ERROR - Error - An unexpected error occured: Unexpected error
+2024-09-24 18:07:00,816 - logger_setup - INFO - Data successfully loaded from test.csv
+2024-09-24 18:07:00,816 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-24 18:07:00,816 - logger_setup - ERROR - Error - File not found: test.csv
+2024-09-24 18:07:00,816 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:07:00,823 - logger_setup - ERROR - Invalid action: invalid_action
+2024-09-24 18:07:00,824 - logger_setup - ERROR - No data available to process.
+2024-09-24 18:07:00,825 - logger_setup - ERROR - Error saving data: test_save_data_csv.<locals>.mock_to_csv() got multiple values for argument 'index'
+2024-09-24 18:07:00,825 - logger_setup - INFO - Data successfully saved to test.csv
+2024-09-24 18:07:00,825 - logger_setup - ERROR - Error saving data: test_save_data_json.<locals>.mock_to_json() takes 1 positional argument but 2 were given
+2024-09-24 18:07:00,825 - logger_setup - INFO - Data successfully saved to test.json
+2024-09-24 18:07:00,828 - logger_setup - ERROR - Error saving data: No module named 'openpyxl'
+2024-09-24 18:07:00,828 - logger_setup - INFO - Data successfully saved to test.xlsx
+2024-09-24 18:07:00,829 - logger_setup - ERROR - Invalid file type: txt
+2024-09-24 18:07:00,830 - logger_setup - ERROR - No data available to save.

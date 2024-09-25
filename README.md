@@ -10,12 +10,15 @@ The dataset used for this project is the Weather Data from Kaggle, which include
 To run this project, you need to have Python and the following packages installed:
 - pandas
 - matplotlib
+- pytest (for testing)
+- pytest-cov (for coverage reporting)
 
 ## File Structure
-- see_pandas.py: This is the main script that handles data loading, processing, and saving using OOP principles.
-- weather_data: The weather dataset used for this project.
-- README.md: Documentation
-- load_data.html: Automatically generated documentation for the project code.
+- `see_data/see_pandas.py`: This is the main script that handles data loading, processing, and saving using OOP principles.
+- `weather_data`: The weather dataset used for this project.
+- `README.md`: Documentation
+- `load_data.html`: Automatically generated documentation for the project code.
+- `tests/`: Contains pytest test files for testing the functionality of `see_pandas.py`
 
 ## Usage
 To load, process, and save the dataset, follow these steps:
@@ -43,3 +46,6 @@ Refactored the application using advanced OOP principles by creating three class
 
 ## MOD 4 - Generators, Iterators, and Logging
 Refactored the code to include generators and iterators for efficient data fetching and processing. Implemented a `fetch_data_generator()` method in the `DataFetcher` class to yield rows one at a time. Added robust error handling for file operations in the `import_data()` method and used logging (`logger_setup`) to log critical events such as data loading, file errors, and general exceptions. Enhanced the application with proper file handling and logging of actions for better traceability and debugging.
+
+## MOD 5 - Unit Testing
+Enhanced the project with unit testing using pytest to ensure the reliability of key functionalities. Developed comprehensive test cases for the `DataFetcher`, `DataProcessor`, and `DataStorage` classes, covering both normal operations and edge cases. Implemented tests for critical actions such as data loading, processing, and saving, along with robust error handling scenarios. Incorporated pytest-cov to measure test coverage and ensure that all major components are thoroughly tested. This refactoring ensures that the application functions correctly across various use cases while maintaining high code quality and reliability.

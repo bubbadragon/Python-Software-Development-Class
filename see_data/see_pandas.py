@@ -7,12 +7,12 @@ import pandas as pd
 from logger_setup import *
     
 class DataFetcher:
+    """
+    A class used to fetch data from a file and process it
+    """
     def __init__(self, file_path):
         '''
         Initialize the DataFetcher object with the file path
-        
-        Parameters:
-        file_path (str): The path to the file.
         '''
         self.file_path = file_path
         self.data = None
@@ -41,9 +41,6 @@ class DataFetcher:
     def import_data(self):
         '''
         Loads a file into a pandas DataFrame.
-
-        Returns:
-        DataFrame: A DataFrame containing the data from weather file 
         '''
         try:
             self.data = pd.read_csv(self.file_path)
@@ -66,9 +63,6 @@ class DataFetcher:
         '''
         Generator function to yield data one row at a time
         '''
-        print("Inside fetch_data_generator:")
-        print("self.data:", self.data)  # Print self.data to check its content
-        
         if self.data is not None:
             for index, row in self.data.iterrows():
                 yield row # Yield = generator
@@ -82,35 +76,28 @@ class DataFetcher:
         # Check if data is loaded and print first row
         self.import_data()
         if self.data is not None:
-            processor = DataProcessor(self.data)
-            print("Data has been loaded and is ready for processing.")
-            
+            logger.info("Data has been loaded and is ready for processing.")
+
             # Print the first row
             for row in self.fetch_data_generator():
-                print(row)
-                break
+                return row
         else:
-            print("Data failed to load.")
+            logger.error("No data available to process.")
+            return None
 
 class DataProcessor:
+    """
+    A class used to process data in a DataFrame
+    """
     def __init__(self, data):
         '''
         Initialize the DataProcessor object with the data
-        
-        Parameters:
-        data (DataFrame): The DataFrame containing the data.
         '''
         self.data = data
         
     def process_data(self, action="describe"):
         '''
         Processes the data by performing a specific action.
-
-        Parameters:
-        action (str): The action to perform on the data ('describe', 'head', 'plot').
-        
-        Returns:
-        The result of the specified action.
         '''
         if self.data is not None:
             if action == "describe":
@@ -120,45 +107,45 @@ class DataProcessor:
             elif action == "plot":
                 self.data.plot()
             else:
-                print(f"Unknown action: {action}")
+                logger.error("Invalid action: %s", action)
         else:
-            print("No data to process.")
+            logger.error("No data available to process.")
+        return None
             
 class DataStorage:
+    """
+    A class to save data from a DataFrame to various file formats (CSV, JSON, Excel)
+    """
     def __init__(self, data):
         '''
         Initialize the DataStorage object with the data
-        
-        Parameters:
-        data (DataFrame): The DataFrame containing the data.
         '''
         self.data = data
         
-    def save_data(self, file_path, file_type = 'csv'):
+    def save_data(self, file_path, file_type='csv'):
         '''
-        Saves the data in the DataFrame to a CSV file.
-
-        Parameters:
-        file_path (str): The path to save the CSV file.
-        file_format (str): The format to save the file in ('csv', 'json', or 'excel').
+        Saves the data in the DataFrame to a file.
         '''
         if self.data is not None:
-            try:
-                if file_type == 'csv':
-                    with open(file_path, 'w') as f:
-                        self.data.to_csv(f, index=False)
-                    print("Data saved to {file_path}")
-                elif file_type == 'json':
-                    with open(file_path, 'w') as f:
-                        self.data.to_json(f)
-                    print("Data saved to {file_path}")
-                elif file_type == 'excel':
+            if file_type == 'csv':
+                try:
+                    self.data.to_csv(file_path, index=False)
+                except Exception as e:
+                    logger.error("Error saving data: %s", e)
+            elif file_type == 'json':
+                try:
+                    self.data.to_json(file_path)
+                except Exception as e:
+                    logger.error("Error saving data: %s", e)
+            elif file_type == 'excel':
+                try:
                     with pd.ExcelWriter(file_path, engine='xlsxwriter') as writer:
                         self.data.to_excel(writer, index=False)
-                    print(f"Data saved to {file_path}")
-                else:
-                    print("Invalid file format")
-            except Exception as e:
-                print(f"Error saving data: {e}")
+                except Exception as e:
+                    logger.error("Error saving data: %s", e)
+            else:
+                logger.error("Invalid file type: %s", file_type)
+                raise ValueError(f"Invalid file type: {file_type}")
+            logger.info("Data successfully saved to %s", file_path)
         else:
-            print("No data available to save.")
+            logger.error("No data available to save.")
