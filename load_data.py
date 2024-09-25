@@ -1,5 +1,9 @@
-from see_data.see_pandas import *
-from logger_setup import *
+"""
+This script loads a CSV file into a pandas DataFrame, processes the data, 
+and saves the data in different formats
+"""
+from see_data.see_pandas import DataProcessor, DataFetcher, DataStorage
+from logger_setup import logger
 
 
 if __name__ == "__main__":
@@ -19,6 +23,5 @@ if __name__ == "__main__":
 
     # Step 3: Save the data
     storage = DataStorage(data)
-    storage.save_data("output.csv")            # Saves as CSV
-    
+    storage.save_data("output.csv")            # Saves as CSV   
     logger.info("Data processing completed.")
