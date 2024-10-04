@@ -249,3 +249,133 @@
 2024-09-24 18:07:00,828 - logger_setup - INFO - Data successfully saved to test.xlsx
 2024-09-24 18:07:00,829 - logger_setup - ERROR - Invalid file type: txt
 2024-09-24 18:07:00,830 - logger_setup - ERROR - No data available to save.
+2024-09-26 17:49:09,865 - logger_setup - INFO - Starting the data processing workflow...
+2024-09-26 17:49:09,982 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-26 17:49:10,114 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-09-26 17:49:10,115 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-09-26 17:49:10,166 - logger_setup - INFO - Data processing started...
+2024-09-26 17:49:10,960 - logger_setup - INFO - Data successfully saved to output.csv
+2024-09-26 17:49:10,960 - logger_setup - INFO - Data processing completed.
+2024-10-03 17:39:48,447 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 17:39:48,568 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 17:39:48,675 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 17:39:48,675 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 17:42:30,532 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 17:42:30,648 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 17:42:30,746 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 17:42:30,746 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 17:43:45,647 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 17:43:45,648 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:05:27,342 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:05:27,456 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:05:27,556 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:05:27,556 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:06:42,449 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:06:42,567 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:06:42,675 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:06:42,675 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:07:22,641 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:07:22,747 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:07:22,852 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:07:22,852 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:09:25,102 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:09:25,224 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:09:25,323 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:09:25,323 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:09:36,131 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:09:36,131 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:13:16,638 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:13:16,765 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:13:16,867 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:13:16,867 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:24:14,079 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:24:14,729 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:24:14,729 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:25:43,189 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:25:43,316 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:25:43,437 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:25:43,437 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:26:16,424 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:26:16,993 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:26:16,993 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:32:01,180 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:32:01,306 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:32:01,412 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:32:01,412 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:33:15,394 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:33:15,991 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:33:15,991 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:34:03,917 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:34:04,028 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:34:04,127 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:34:04,127 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:34:22,193 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:34:22,768 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:34:22,768 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:34:27,894 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:34:27,999 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:34:28,109 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:34:28,109 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:36:54,715 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:36:55,273 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:36:55,273 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:36:59,270 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:36:59,381 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:36:59,488 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:36:59,488 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 18:58:42,252 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 18:58:42,910 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 18:58:42,910 - logger_setup - INFO - Data processing completed.
+2024-10-03 18:58:45,581 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 18:58:45,706 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:58:45,809 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 18:58:45,809 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:03:34,785 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:03:35,381 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:03:35,381 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:03:42,137 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:03:42,245 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:03:42,352 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:03:42,352 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:06:34,799 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:06:35,334 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:06:35,334 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:06:38,269 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:06:38,386 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:06:38,486 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:06:38,486 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:11:44,089 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:11:44,731 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:11:44,732 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:11:47,721 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:11:47,846 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:11:47,944 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:11:47,944 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:14:48,905 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:14:49,451 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:14:49,451 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:14:55,729 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:14:55,839 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:14:55,937 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:14:55,937 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:16:55,716 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:16:56,288 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:16:56,288 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:16:58,367 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:16:58,471 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:16:58,576 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:16:58,576 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:17:31,526 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:17:32,082 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:17:32,082 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:17:34,413 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:17:34,531 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:17:34,633 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:17:34,633 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-03 19:17:51,725 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-03 19:17:52,558 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-03 19:17:52,559 - logger_setup - INFO - Data processing completed.
+2024-10-03 19:31:52,518 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-03 19:31:52,652 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:31:52,753 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-03 19:31:52,753 - logger_setup - INFO - Data has been loaded and is ready for processing.
