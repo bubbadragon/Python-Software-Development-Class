@@ -49,3 +49,6 @@ Refactored the code to include generators and iterators for efficient data fetch
 
 ## MOD 5 - Unit Testing
 Enhanced the project with unit testing using pytest to ensure the reliability of key functionalities. Developed comprehensive test cases for the `DataFetcher`, `DataProcessor`, and `DataStorage` classes, covering both normal operations and edge cases. Implemented tests for critical actions such as data loading, processing, and saving, along with robust error handling scenarios. Incorporated pytest-cov to measure test coverage and ensure that all major components are thoroughly tested. This refactoring ensures that the application functions correctly across various use cases while maintaining high code quality and reliability.
+
+## MOD 6 - Data Patterns, Trends, Visualize 
+Refactored the code to allow users to analyze specific locations or the entire dataset. Added functionality to plot weather data (e.g., temperature, rainfall) over time, filter data by column values or location, and convert units from Celsius to Fahrenheit. Introduced a sum function to aggregate data (e.g., total rainfall) with handling for missing values. Enhanced the user experience with robust logging, tracking actions like data loading, filtering, plotting, conversions, and error handling, providing better traceability throughout the data analysis workflow.
