@@ -1,5 +1,6 @@
 import pandas as pd
 from logger_setup import logger
+from concurrent.futures import ThreadPoolExecutor
 
 class DataFetcher:
     """
@@ -12,6 +13,7 @@ class DataFetcher:
         self.file_path = file_path
         self.data = None
         self.current_index = 0
+        self.chunk_size = 1000
         
     def __iter__(self):
         '''
@@ -38,21 +40,18 @@ class DataFetcher:
         Loads a file into a pandas DataFrame.
         '''
         try:
-            self.data = pd.read_csv(self.file_path)
+            if self.chunk_size:
+                logger.info(f"Loading data from {self.file_path} in chunks of {self.chunk_size} rows.")
+                chunks = pd.read_csv(self.file_path, chunksize=self.chunk_size)
+                self.data = pd.concat(chunks, ignore_index=True)
+            else:
+                logger.info(f"Loading data from {self.file_path}.")
+                self.data = pd.read_csv(self.file_path)
             logger.info("Data successfully loaded from %s", self.file_path)
-            return self.data
-        except FileNotFoundError:
-            logger.error("Error - File not found: %s", self.file_path)
-            return None
-        except pd.errors.EmptyDataError:
-            logger.error("Error - The file %s is empty", self.file_path)
-            return None
-        except pd.errors.ParserError:
-            logger.error("Error - Error parsing the file: %s", self.file_path)
-            return None
         except Exception as e:
-            logger.error("Error - An unexpected error occured: %s", e)
-            return None
+            logger.error("Error loading data from %s: %s", self.file_path, e)
+            self.data = None
+        return self.data
 
     def fetch_data_generator(self):
         '''
@@ -79,3 +78,27 @@ class DataFetcher:
         else:
             logger.error("No data available to process.")
             return None
+        
+    @staticmethod
+    def load_multiple_files(file_paths):
+        '''
+        Load multiple files concurrently using ThreadPoolExecutor.
+
+        :param file_paths: List of file paths to load
+        :param chunk_size: Number of rows to read per chunk (for large datasets)
+        :return: List of DataFetcher instances with loaded data
+        '''
+        def load_file(path):
+            fetcher = DataFetcher(path)
+            fetcher.import_data()
+            return fetcher
+
+        fetchers = []
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(load_file, path) for path in file_paths]
+            for future in futures:
+                try:
+                    fetchers.append(future.result())
+                except Exception as e:
+                    logger.error("Error occurred while loading file: %s", e)
+        return fetchers

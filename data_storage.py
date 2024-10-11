@@ -1,5 +1,6 @@
 import pandas as pd
 from logger_setup import logger
+from concurrent.futures import ThreadPoolExecutor
 
 class DataStorage:
     """
@@ -38,3 +39,23 @@ class DataStorage:
             logger.info("Data successfully saved to %s", file_path)
         else:
             logger.error("No data available to save.")
+
+    def save_multiple_formats(self, save_paths):
+        '''
+        Saves the data in the DataFrame to multiple file formats.
+        '''
+        if self.data is not None:
+            with ThreadPoolExecutor() as executor:
+                futures = []
+                for file_type, file_path in save_paths.items():
+                    futures.append(executor.submit(self.save_data, file_path, file_type))
+
+                for future in futures:
+                    try:
+                        future.result()
+                    except Exception as e:
+                        logger.error("Error saving data: %s", e)
+        else:
+            logger.error("No data available to save.")
+            print("No data available to save.")
+
