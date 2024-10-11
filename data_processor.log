@@ -379,3 +379,102 @@
 2024-10-03 19:31:52,652 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
 2024-10-03 19:31:52,753 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
 2024-10-03 19:31:52,753 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-04 14:52:15,269 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-04 14:52:16,053 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-04 14:52:16,053 - logger_setup - INFO - Data processing completed.
+2024-10-04 14:52:21,692 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-04 14:52:21,827 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-04 14:52:21,929 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-04 14:52:21,929 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-04 14:53:12,562 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-04 14:53:12,603 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-04 14:53:31,845 - logger_setup - INFO - Performing action 'plot' with column 'Rainfall' and location 'Albury'.
+2024-10-04 14:53:31,847 - logger_setup - INFO - Plotting 'Rainfall' for location 'Albury'.
+2024-10-04 14:54:39,938 - logger_setup - INFO - Filtering 'Maxtemp' where values are 'greater' than 30.
+2024-10-04 14:55:42,041 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-04 14:55:42,210 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-04 14:55:42,331 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-04 14:55:42,332 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-04 14:55:56,067 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-04 14:55:56,087 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-04 14:56:17,113 - logger_setup - INFO - Filtering 'MaxTemp' where values are 'greater' than 30.
+2024-10-04 14:56:39,944 - logger_setup - INFO - Performing action 'sum' with column 'Rainfall' and location 'None'.
+2024-10-04 14:56:39,947 - logger_setup - INFO - Reducing column 'Rainfall' to get total value.
+2024-10-04 14:56:53,129 - logger_setup - INFO - Performing action 'convert' with column 'MinTemp' and location 'None'.
+2024-10-04 14:56:53,131 - logger_setup - INFO - Converting 'MinTemp' from Celsius to Fahrenheit.
+2024-10-04 14:56:56,753 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-04 14:56:57,385 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-04 14:56:57,385 - logger_setup - INFO - Data processing completed.
+2024-10-11 14:40:47,404 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 14:40:47,517 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:40:47,612 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:40:47,613 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 14:41:02,752 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:41:02,761 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:41:20,159 - logger_setup - INFO - Performing action 'convert' with column 'MaxTemp' and location 'None'.
+2024-10-11 14:41:20,161 - logger_setup - INFO - Converting 'MaxTemp' from Celsius to Fahrenheit.
+2024-10-11 14:45:37,586 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 14:45:37,710 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:45:37,830 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:45:37,831 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 14:45:44,212 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:45:44,231 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:45:56,824 - logger_setup - INFO - Performing action 'convert' with column 'MaxTemp' and location 'None'.
+2024-10-11 14:45:56,825 - logger_setup - INFO - Converting 'MaxTemp' from Celsius to Fahrenheit.
+2024-10-11 14:46:22,879 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 14:46:23,487 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 14:46:23,487 - logger_setup - INFO - Data processing completed.
+2024-10-11 14:47:04,691 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 14:47:04,826 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:47:04,938 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:47:04,938 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 14:47:12,098 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:47:12,118 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:47:20,298 - logger_setup - INFO - Performing action 'convert' with column 'MaxTemp' and location 'None'.
+2024-10-11 14:47:20,301 - logger_setup - INFO - Converting 'MaxTemp' from Celsius to Fahrenheit.
+2024-10-11 14:47:34,183 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 14:47:34,768 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 14:47:34,768 - logger_setup - INFO - Data processing completed.
+2024-10-11 14:54:36,167 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 14:54:36,319 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:54:36,431 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 14:54:36,432 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 14:54:45,930 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:54:45,948 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 14:54:53,557 - logger_setup - INFO - Performing action 'sum' with column 'Rainfall' and location 'None'.
+2024-10-11 14:54:53,558 - logger_setup - INFO - Reducing column 'Rainfall' to get total value.
+2024-10-11 14:55:01,180 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 14:55:01,739 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 14:55:01,739 - logger_setup - INFO - Data processing completed.
+2024-10-11 15:21:27,466 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 15:21:27,588 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 15:21:27,696 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 15:21:27,696 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 15:21:33,336 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 15:21:38,396 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 15:21:38,987 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 15:21:50,023 - logger_setup - ERROR - Invalid file type: output.json
+2024-10-11 15:21:50,024 - logger_setup - ERROR - Invalid file type: output.xlsx
+2024-10-11 15:21:50,026 - logger_setup - ERROR - Error saving data: Invalid file type: output.json
+2024-10-11 15:21:50,027 - logger_setup - ERROR - Error saving data: Invalid file type: output.xlsx
+2024-10-11 15:21:50,029 - logger_setup - INFO - Data processing completed.
+2024-10-11 15:26:15,900 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 15:26:16,029 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 15:26:16,128 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 15:26:16,128 - logger_setup - INFO - Data has been loaded and is ready for processing.
+2024-10-11 15:26:18,268 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 15:26:20,295 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 15:26:20,901 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 15:26:23,306 - logger_setup - ERROR - Error saving data: No module named 'xlsxwriter'
+2024-10-11 15:26:23,311 - logger_setup - INFO - Data successfully saved to output.xlsx
+2024-10-11 15:26:23,322 - logger_setup - INFO - Data successfully saved to output.json
+2024-10-11 15:26:23,324 - logger_setup - INFO - Data processing completed.
+2024-10-11 15:41:59,625 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 15:41:59,625 - logger_setup - ERROR - No data available to process. Exiting the workflow.
+2024-10-11 15:45:11,935 - logger_setup - INFO - Starting the data processing workflow...
+2024-10-11 15:45:11,935 - logger_setup - INFO - Loading data from weather_data/Weather Training Data.csv in chunks of 1000 rows.
+2024-10-11 15:45:12,143 - logger_setup - INFO - Data successfully loaded from weather_data/Weather Training Data.csv
+2024-10-11 15:45:24,012 - logger_setup - INFO - DataVisualizer initialized with data.
+2024-10-11 15:45:29,821 - logger_setup - INFO - Data processing workflow ended by user.
+2024-10-11 15:45:30,467 - logger_setup - INFO - Data successfully saved to output.csv
+2024-10-11 15:45:34,052 - logger_setup - INFO - Data processing completed.

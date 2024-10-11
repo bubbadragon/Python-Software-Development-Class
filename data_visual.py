@@ -3,6 +3,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from functools import reduce
 from logger_setup import logger
+from concurrent.futures import ProcessPoolExecutor
+
+def convert_celsius_to_fahrenheit(celsius):
+        """
+        Convert temperature from Celsius to Fahrenheit.
+
+        :param celsius: Temperature in Celsius
+        :return: Temperature in Fahrenheit
+        """
+        return (celsius * 9/5) + 32
+
+def sum_value(x):
+    return x
 
 class DataVisualizer:
     """
@@ -70,7 +83,6 @@ class DataVisualizer:
             logger.warning("Please specify both a column and a location.")
             print("Please specify both a column and a location.")
 
-
     def filter_data(self, column=None, location=None):
         """
         Filter the data either by a column value (with greater than, less than, or equal to) or by location.
@@ -123,7 +135,6 @@ class DataVisualizer:
             print("Please specify either a column or a location for filtering.")
             return None
 
-
     def unit_conversion(self, column):
         """
         Map the data, applying a transformation to the specified column.
@@ -136,7 +147,8 @@ class DataVisualizer:
             # Example: Convert temperature from Celsius to Fahrenheit
             try:
                 logger.info(f"Converting '{column}' from Celsius to Fahrenheit.")
-                self.data.loc[:, column] = self.data[column].map(lambda x: x * 9/5 + 32)
+                with ProcessPoolExecutor() as executor:
+                    self.data[column] = list(executor.map(convert_celsius_to_fahrenheit, self.data[column]))
                 return self.data[[column]]
             except KeyError:
                 logger.error(f"Column '{column}' not found in the data.")
@@ -145,7 +157,6 @@ class DataVisualizer:
         else:
             logger.warning("No column specified for conversion.")
             print("No column specified for mapping.")
-
 
     def sum_column(self, column):
         """
@@ -158,7 +169,8 @@ class DataVisualizer:
             try:
                 # Drop NaN values before reducing (summing) the data
                 logger.info(f"Reducing column '{column}' to get total value.")
-                total = reduce(lambda x, y: x + y, self.data[column].dropna())
+                with ProcessPoolExecutor() as executor:
+                    total = sum(executor.map(sum_value, self.data[column].dropna()))
                 return total
             except KeyError:
                 logger.error(f"Column '{column}' not found in the data.")

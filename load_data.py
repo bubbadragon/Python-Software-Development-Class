@@ -13,10 +13,14 @@ if __name__ == "__main__":
     logger.info("Starting the data processing workflow...")
    
     # Step 1: Load the data
-    fetcher = DataFetcher("weather_data/Weather Training Data.csv")
-    data = fetcher.import_data()
-    fetcher.process_and_fetch()
-
+    file = ["weather_data/Weather Training Data.csv"]
+    fetchers = DataFetcher.load_multiple_files(file)
+    data = fetchers[0].data if fetchers else None
+    
+    if data is None:
+        logger.error("No data available to process. Exiting the workflow.")
+        exit()
+    
     # Step 2: Ask the user whether to analyze a specific location or all data
     choice = input("Do you want to analyze a specific location or all data? Type 'location' or 'all': ").lower()
 
@@ -25,6 +29,7 @@ if __name__ == "__main__":
         # Filter the data for that location
         visual = DataVisualizer(data)
         location_data = visual.filter_data(location=location)
+        
 
         if location_data is None or location_data.empty:
             print(f"No data found for location: {location}. Exiting the workflow.")
@@ -97,7 +102,20 @@ if __name__ == "__main__":
 
     # Step 2: Save the data
     storage = DataStorage(data)
-    storage.save_data("output.csv")            # Saves as CSV   
+    storage.save_data("output.csv") # Saves as CSV by default
+
+    # Ask the user for the file formats they want to save the data in
+    additional_formats = input("Do you want to save the data in additional formats (json, excel, or both)? Type 'none', 'json', 'excel', or 'both': ").lower()
+    
+    save_paths = {}
+    if additional_formats == 'json' or additional_formats == 'both':
+        save_paths['json'] = "output.json"
+    if additional_formats == 'excel' or additional_formats == 'both':
+        save_paths['excel'] = "output.xlsx"
+    if save_paths:
+        storage.save_multiple_formats(save_paths)
+    
+    
     logger.info("Data processing completed.")
     
     
