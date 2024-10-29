@@ -55,3 +55,14 @@ Refactored the code to allow users to analyze specific locations or the entire d
 
 ## Mod 7 - Multithreading Concurrency
 Refactored the code to load data concurrently from multiple files using the DataFetcher. `load_multiple_files()` method, leveraging `ThreadPoolExecutor` for improved data ingestion efficiency. Introduced chunked data loading with a default size of 1000 rows in DataFetcher to optimize memory usage when handling large datasets, allowing for smoother performance and preventing memory overload. Implemented data saving enhancements in the DataStorage class, with default CSV saving and an optional prompt for saving in additional formats (JSON, Excel) using the `save_multiple_formats()` method. Also optimized the `unit_conversion` and `sum_column` functions within `data_visual` to use `ProcessPoolExecutor` for improved speed.
+
+## Mod 8 - PySpark Integration and Streamlit Interface Update
+# PySpark Integration
+Refactored the code to load data into a PySpark DataFrame using the DataFetcher class, leveraging PySpark’s distributed computing capabilities for improved scalability and memory efficiency. Adjusted data loading in DataFetcher to allow for multiple files to be ingested concurrently with load_multiple_files(), enhancing data ingestion and processing speed. For data analysis actions, we convert the PySpark DataFrame to a Pandas DataFrame when needed, ensuring compatibility with downstream operations and visualizations.
+# Streamlit Interface 
+Replaced command-line inputs with a fully interactive Streamlit interface. Users can:
+
++ **Choose Location Scope:** Select either a specific location or all locations as the initial scope for analysis.
++ **Perform Data Actions:** Conduct various data actions (e.g., describe, head, plot, filter, convert units, and sum) on the selected dataset subset, with dynamic input  options through Streamlit widgets for each action.
++ **Plotting and Visualization:** Integrated st.pyplot() to render visualizations directly within Streamlit, making data insights easily accessible.
++ **Data Saving Options:** Included an option to save the final dataset in multiple formats (CSV, JSON, Excel) using the DataStorage class, ensuring that any filtered or transformed data can be exported as needed.
