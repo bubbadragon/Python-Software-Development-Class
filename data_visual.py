@@ -1,106 +1,48 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from functools import reduce
+import streamlit as st
 from logger_setup import logger
-from concurrent.futures import ProcessPoolExecutor
-
-def convert_celsius_to_fahrenheit(celsius):
-        """
-        Convert temperature from Celsius to Fahrenheit.
-
-        :param celsius: Temperature in Celsius
-        :return: Temperature in Fahrenheit
-        """
-        return (celsius * 9/5) + 32
-
-def sum_value(x):
-    return x
 
 class DataVisualizer:
-    """
-    A class to process and visualize weather data from a DataFrame.
-    The user can specify actions like 'describe', 'head', 'plot', 'filter', and more.
-    """
+    """A class to process and visualize weather data from a Pandas DataFrame."""
 
     def __init__(self, data):
         """
-        Initialize the WeatherDataProcessor with a pandas DataFrame.
-
-        :param data: pandas DataFrame containing weather data
+        Initialize the DataVisualizer with a PySpark or Pandas DataFrame.
+        Converts to Pandas if it’s a Spark DataFrame.
         """
-        self.data = data
-        logger.info("DataVisualizer initialized with data.")
+        try:
+            # Only convert if data is a PySpark DataFrame
+            if not isinstance(data, pd.DataFrame):
+                self.data = data.toPandas()
+                logger.info("Data successfully converted to Pandas DataFrame.")
+            else:
+                self.data = data
+        except Exception as e:
+            logger.error(f"Error converting data to Pandas DataFrame: {e}")
+            self.data = None
 
-    def visualize_data(self, action="describe", column=None, location=None):
-        """
-        Process and visualize the weather data based on the specified action.
-        """
-        
-        logger.info(f"Performing action '{action}' with column '{column}' and location '{location}'.")
-        
-        actions = {
-            "describe": self.data.describe,
-            "head": self.data.head,
-            "plot": lambda: self.plot_data(column, location),
-            "filter": lambda: self.filter_data(column),
-            "convert": lambda: self.unit_conversion(column),
-            "sum": lambda: self.sum_column(column),
-        }
+    def plot_data(self, column, log_scale=False):
+        """Helper function to plot data using Seaborn and Matplotlib, rendered with Streamlit."""
+        plt.figure(figsize=(10, 6))
+        sns.histplot(self.data[column], log_scale=log_scale)
+        plt.title(f"Distribution of {column}")
+        st.pyplot(plt)  # Render the plot in Streamlit
 
-        if action in actions:
-            return actions[action]()
-        else:
-            print(f"Invalid action: {action}")
-            logger.error(f"Invalid action specified: {action}")
-            return None
-
-    def plot_data(self, column, location):
-        """
-        Plot the data for a specific location using matplotlib or seaborn.
-
-        :param column: The column to visualize (e.g., MaxTemp, Rainfall)
-        :param location: The location to filter by (e.g., Albury)
-        :return: None
-        """
-        if column and location:
-            # Filter the data for the given location
-            logger.info(f"Plotting '{column}' for location '{location}'.")
-            location_data = self.data[self.data['Location'] == location]
-            
-            if location_data.empty:
-                logger.warning(f"No data found for location: {location}")
-                print(f"No data found for location: {location}")
-                return
-            
-            plt.figure(figsize=(10, 6))
-            sns.lineplot(data=location_data, x=location_data.index, y=location_data[column])
-            plt.title(f"{column} Over Time for {location}")
-            plt.xlabel("Index")
-            plt.ylabel(column)
-            plt.show()
-        else:
-            logger.warning("Please specify both a column and a location.")
-            print("Please specify both a column and a location.")
-
-    def filter_data(self, column=None, location=None):
+    def filter_data(self, column=None, comparison=None, threshold=None, location=None):
         """
         Filter the data either by a column value (with greater than, less than, or equal to) or by location.
 
         :param column: The column to filter (e.g., MaxTemp, Rainfall)
+        :param comparison: The type of comparison ('greater', 'less', 'equal')
+        :param threshold: The threshold value for filtering
         :param location: The location to filter (e.g., Albury)
         :return: Filtered DataFrame
         """
-        if column:
-            # Ask user to input the type of comparison they want (greater than, less than, or equal to)
-            comparison = input("Enter comparison type (greater, less, equal): ").lower()
-            threshold = input(f"Enter the threshold value for {column}: ")
-            
-            logger.info(f"Filtering '{column}' where values are '{comparison}' than {threshold}.")
-
+        if column and comparison and threshold is not None:
             try:
-                threshold = float(threshold)  # Convert the threshold to a numeric value
-
+                threshold = float(threshold)
                 if comparison == 'greater':
                     filtered_data = self.data[self.data[column] > threshold]
                 elif comparison == 'less':
@@ -109,78 +51,46 @@ class DataVisualizer:
                     filtered_data = self.data[self.data[column] == threshold]
                 else:
                     logger.error(f"Invalid comparison type: {comparison}")
-                    print(f"Invalid comparison type: {comparison}")
                     return None
 
                 if filtered_data.empty:
                     logger.warning(f"No data matches the filter condition {column} {comparison} {threshold}.")
-                    print(f"No data matches the filter condition {column} {comparison} {threshold}.")
+                    st.warning(f"No data matches the filter condition {column} {comparison} {threshold}.")
                     return None
                 return filtered_data
 
             except ValueError:
                 logger.error(f"Invalid threshold value for {column}.")
-                print(f"Invalid input. Please enter a valid numeric threshold for {column}.")
+                st.error(f"Invalid input. Please enter a valid numeric threshold for {column}.")
+                return None
 
         elif location:
-            # Filter for a specific location
+            # Filter for a specific location if `location` is provided
             location_data = self.data[self.data['Location'] == location]
             if location_data.empty:
                 logger.warning(f"No data found for location: {location}")
-                print(f"No data found for location: {location}")
+                st.warning(f"No data found for location: {location}")
+                return None
             return location_data
 
         else:
-            logger.warning("Please specify either a column or a location for filtering.")
-            print("Please specify either a column or a location for filtering.")
+            logger.warning("Please specify either a column and filter criteria or a location for filtering.")
+            st.warning("Please specify either a column and filter criteria or a location for filtering.")
             return None
 
-    def unit_conversion(self, column):
+    def visualize_data(self, action="describe", column=None, log_scale=False):
         """
-        Map the data, applying a transformation to the specified column.
-        Example: Convert temperature from Celsius to Fahrenheit.
-
-        :param column: The column to apply the transformation (e.g., temperature)
-        :return: Transformed DataFrame
-        """
-        if column:
-            # Example: Convert temperature from Celsius to Fahrenheit
-            try:
-                logger.info(f"Converting '{column}' from Celsius to Fahrenheit.")
-                with ProcessPoolExecutor() as executor:
-                    self.data[column] = list(executor.map(convert_celsius_to_fahrenheit, self.data[column]))
-                return self.data[[column]]
-            except KeyError:
-                logger.error(f"Column '{column}' not found in the data.")
-                print(f"Column '{column}' not found in the data.")
-                return None
-        else:
-            logger.warning("No column specified for conversion.")
-            print("No column specified for mapping.")
-
-    def sum_column(self, column):
-        """
-        Use reduce to aggregate data. Example: Calculate total rainfall.
+        Handles actions like 'describe' and 'head' based on the 'action' parameter.
         
-        :param column: The column to aggregate (e.g., rainfall)
-        :return: Aggregated value (e.g., total rainfall)
+        :param action: The action to perform (e.g., 'describe' or 'head').
+        :param column: Optional column to focus on for actions like 'plot'.
+        :param log_scale: Whether to apply log scale for plotting.
+        :return: Result of the action or None.
         """
-        if column:
-            try:
-                # Drop NaN values before reducing (summing) the data
-                logger.info(f"Reducing column '{column}' to get total value.")
-                with ProcessPoolExecutor() as executor:
-                    total = sum(executor.map(sum_value, self.data[column].dropna()))
-                return total
-            except KeyError:
-                logger.error(f"Column '{column}' not found in the data.")
-                print(f"Column '{column}' not found in the data.")
-                return None
-            except TypeError:
-                logger.error(f"Column '{column}' contains non-numeric data.")
-                print(f"Column '{column}' contains non-numeric data.")
-                return None
+        if action == "describe":
+            return self.data.describe()
+        elif action == "head":
+            return self.data.head()  # You can specify the number of rows in the calling function
         else:
-            logger.warning("No column specified for reduction.")
-            print("No column specified for reduction.")
-            return None
+            raise ValueError(f"Action '{action}' is not supported in visualize_data.")
+

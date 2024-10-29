@@ -1,121 +1,91 @@
-"""
-This script loads a CSV file into a pandas DataFrame, processes the data, 
-and saves the data in different formats
-"""
+import streamlit as st
 from data_fetcher import DataFetcher
 from data_visual import DataVisualizer
 from data_storage import DataStorage
 from logger_setup import logger
 
+# Load data
+st.title("Weather Data Analysis")
+logger.info("Starting the data processing workflow...")
 
-if __name__ == "__main__":
-    # Step 0: Start the logger
-    logger.info("Starting the data processing workflow...")
-   
-    # Step 1: Load the data
-    file = ["weather_data/Weather Training Data.csv"]
-    fetchers = DataFetcher.load_multiple_files(file)
-    data = fetchers[0].data if fetchers else None
-    
-    if data is None:
-        logger.error("No data available to process. Exiting the workflow.")
-        exit()
-    
-    # Step 2: Ask the user whether to analyze a specific location or all data
-    choice = input("Do you want to analyze a specific location or all data? Type 'location' or 'all': ").lower()
+# Load dataset
+file = ["weather_data/Weather Training Data.csv"]
+fetchers = DataFetcher.load_multiple_files(file)
+data = fetchers[0].data if fetchers else None
 
-    if choice == 'location':
-        location = input("Enter the location you want to analyze (e.g., Albury): ")
-        # Filter the data for that location
+if data is None:
+    st.error("No data available to process.")
+    st.stop()
+
+# Step 1: User selects analysis mode - specific location or all locations
+st.sidebar.header("Location Selection")
+location_choice = st.sidebar.radio("Analyze data for:", ["All Locations", "Specific Location"])
+
+# Initialize the DataVisualizer with the chosen dataset
+if location_choice == "Specific Location":
+    # Get the specific location input
+    location = st.sidebar.text_input("Enter the location to analyze (e.g., Albury)")
+    
+    if location:
         visual = DataVisualizer(data)
-        location_data = visual.filter_data(location=location)
+        filtered_data = visual.filter_data(location=location)
         
-
-        if location_data is None or location_data.empty:
-            print(f"No data found for location: {location}. Exiting the workflow.")
-            logger.info(f"No data found for location: {location}. Workflow ended.")
-            exit()  # Exit if no data is found for the location
-
-        # Update the visualizer to work with the filtered location data
-        visual = DataVisualizer(location_data)
-
-    elif choice == 'all':
-        # Use the entire dataset
-        visual = DataVisualizer(data)
-        LOCATION = None
-        print("You are analyzing the entire dataset.")
-
-    else:
-        print("Invalid choice. Please start over and choose either 'location' or 'all'.")
-        exit()
-
-    # Step 3: Allow the user to perform actions on the filtered data or the full dataset
-    while True:
-        action = input("Enter the action you want to perform (describe, head, plot, filter, convert, sum) or type 'q' to quit: ").lower()
-
-        if action == 'q':
-            print("Exiting the data processing workflow.")
-            logger.info("Data processing workflow ended by user.")
-            break
-
-        # Handling 'describe' and 'head' actions
-        if action == 'describe' or action == 'head':
-            result = visual.visualize_data(action=action)
-            if result is not None:
-                print(result)
-
-        # Handling the 'plot' action
-        elif action == 'plot':
-            column = input("Enter the column to plot (e.g., MaxTemp, Rainfall): ")
-
-            # Only ask for location if the user is analyzing the entire dataset
-            if choice == 'all':
-                location = input("Enter the location to plot (e.g., Albury): ")
-
-            # Call the plot function with the provided column and location
-            visual.visualize_data(action=action, column=column, location=location)
-
-        # Handling the 'filter' action
-        elif action == 'filter':
-            column = input("Enter the column to filter (e.g., MaxTemp, Rainfall): ")
-            result = visual.filter_data(column=column)
-            if result is not None:
-                print(result)
-
-        # Handling the 'convert' action (for unit conversion)
-        elif action == 'convert':
-            column = input("Enter the column to convert (e.g., MaxTemp for Celsius to Fahrenheit conversion): ")
-            result = visual.visualize_data(action=action, column=column)
-            if result is not None:
-                print(result)
-
-        # Handling the 'sum' action (for summing up a column, e.g., total rainfall)
-        elif action == 'sum':
-            column = input("Enter the column to reduce (e.g., Rainfall to sum it up): ")
-            result = visual.visualize_data(action=action, column=column)
-            if result is not None:
-                print(f"Total {column}: {result}")
-
-        # Invalid action handling
+        if filtered_data is not None:
+            st.write(f"Data for location: {location}")
+            st.dataframe(filtered_data)
+            # Update the DataVisualizer instance to use the filtered data
+            visual = DataVisualizer(filtered_data)
         else:
-            print(f"Invalid action: {action}. Please try again.")
+            st.warning("No data found for the specified location.")
+            st.stop()
+else:
+    st.write("Analyzing data for all locations")
+    visual = DataVisualizer(data)
+    st.dataframe(data)
 
-    # Step 2: Save the data
+# Step 2: User selects action to perform on the chosen dataset
+st.sidebar.header("Data Analysis Actions")
+action = st.sidebar.selectbox("Choose an action to perform", ["Select an action", "Describe", "Head", "Plot", "Filter by Column"])
+
+# Perform actions based on user's choice
+if action == "Describe":
+    if st.button("Show Description"):
+        description = visual.visualize_data(action="describe")
+        st.write("Data Description")
+        st.write(description)
+
+elif action == "Head":
+    num_rows = st.number_input("Number of rows to display", min_value=1, max_value=100, value=5)
+    if st.button("Show Head"):
+        head_data = visual.visualize_data(action="head").head(num_rows)
+        st.write("First few rows of data")
+        st.dataframe(head_data)
+
+elif action == "Plot":
+    column = st.selectbox("Select column to plot", data.columns)
+    log_scale = st.checkbox("Log Scale")
+    if st.button("Generate Plot"):
+        st.write(f"Plotting column: {column}")
+        visual.plot_data(column=column, log_scale=log_scale)
+
+elif action == "Filter by Column":
+    column = st.selectbox("Select column to filter", data.columns)
+    comparison = st.selectbox("Select comparison type", ["greater", "less", "equal"])
+    threshold = st.number_input(f"Enter the threshold value for {column}")
+
+    if st.button("Filter Data"):
+        filtered_data = visual.filter_data(column=column, comparison=comparison, threshold=threshold)
+        if filtered_data is not None:
+            st.write(f"Filtered data for {column} {comparison} {threshold}")
+            st.dataframe(filtered_data)
+        else:
+            st.warning("No data matches the filter criteria.")
+
+# Step 3: Option to save the data
+st.sidebar.header("Save Data")
+save_format = st.sidebar.selectbox("Choose file format to save", ["None", "CSV", "JSON", "Excel"])
+if save_format != "None" and st.sidebar.button("Save Data"):
     storage = DataStorage(data)
-    storage.save_data("output.csv") # Saves as CSV by default
-
-    # Ask the user for the file formats they want to save the data in
-    additional_formats = input("Do you want to save the data in additional formats (json, excel, or both)? Type 'none', 'json', 'excel', or 'both': ").lower()
-    
-    save_paths = {}
-    if additional_formats == 'json' or additional_formats == 'both':
-        save_paths['json'] = "output.json"
-    if additional_formats == 'excel' or additional_formats == 'both':
-        save_paths['excel'] = "output.xlsx"
-    if save_paths:
-        storage.save_multiple_formats(save_paths)
-    
-    
-    logger.info("Data processing completed.")
-    
-    
+    file_path = f"output.{save_format.lower()}"
+    storage.save_data(file_path, file_type=save_format.lower())
+    st.sidebar.success(f"Data saved successfully as {file_path}")
