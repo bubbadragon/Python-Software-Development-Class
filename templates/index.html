@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Analyze CSV Data</title>
+    <style>
+        /* Basic styling for layout and visibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="file"], select, input[type="number"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .flash-messages p {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        
+        .flash-messages .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .flash-messages .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .plot-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload CSV Data</h1>
+
+        <!-- Display flash messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <!-- File Upload Form -->
+        <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+            <label for="file">Choose a CSV file:</label>
+            <input type="file" id="file" name="file" accept=".csv">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Data Analysis Options</h2>
+        <form action="{{ url_for('analyze_data') }}" method="post">
+            <label for="table">Select a Table:</label>
+            <select name="table" id="table" onchange="loadColumns()">
+                {% for table in tables %}
+                    <option value="{{ table }}" {% if table == selected_table %}selected{% endif %}>{{ table }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="action">Choose an action:</label>
+            <select name="action" id="action">
+                <option value="describe">Describe Data</option>
+                <option value="filter">Filter Data</option>
+                <option value="visualize">Visualize Data</option>
+            </select>
+
+            <!-- Column selection for Describe Data action -->
+            <div id="describe-column-options" style="display:none;">
+                <label for="describe_column">Select Column for Description:</label>
+                <select name="describe_column" id="describe_column">
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+
+            <!-- Filter options for Filter Data action -->
+            <div id="filter-options" style="display:none;">
+                <label for="column">Select Column:</label>
+                <select name="column" id="column">
+                    <!-- Options will be dynamically loaded -->
+                </select>
+
+                <label for="comparison">Comparison Type:</label>
+                <select name="comparison" id="comparison">
+                    <option value="greater">Greater Than</option>
+                    <option value="less">Less Than</option>
+                    <option value="equal">Equal To</option>
+                </select>
+
+                <label for="threshold">Threshold Value:</label>
+                <input type="number" id="threshold" name="threshold" step="any">
+            </div>
+
+            <!-- Visualization options for Visualize Data action -->
+            <div id="visualize-options" style="display:none;">
+                <label for="x_column">Select X-axis Column:</label>
+                <select name="x_column" id="x_column">
+                    <!-- Options will be dynamically loaded -->
+                </select>
+
+                <label for="y_column">Select Y-axis Column:</label>
+                <select name="y_column" id="y_column">
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+
+            <!-- Row Limit Input -->
+            <label for="row_limit">Number of Rows to Display:</label>
+            <input type="number" id="row_limit" name="row_limit" min="1" value="20">
+
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+
+    <!-- Display Analysis Result if available -->
+    {% if analysis_result %}
+    <div class="container">
+        <h2>Analysis Result (Showing {{ row_limit }} rows if applicable)</h2>
+        <div>{{ analysis_result | safe }}</div>
+    </div>
+    {% endif %}
+
+    <!-- Display Visualization Result if available -->
+    {% if plot_url %}
+    <div class="container plot-container">
+        <h2>Visualization Result</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Plot">
+    </div>
+    {% endif %}
+
+    <script>
+        document.getElementById('action').addEventListener('change', function() {
+            const filterOptions = document.getElementById('filter-options');
+            const describeColumnOptions = document.getElementById('describe-column-options');
+            const visualizeOptions = document.getElementById('visualize-options');
+            
+            // Show/hide options based on selected action
+            filterOptions.style.display = 'none';
+            describeColumnOptions.style.display = 'none';
+            visualizeOptions.style.display = 'none';
+
+            if (this.value === 'filter') {
+                filterOptions.style.display = 'block';
+            } else if (this.value === 'describe') {
+                describeColumnOptions.style.display = 'block';
+            } else if (this.value === 'visualize') {
+                visualizeOptions.style.display = 'block';
+            }
+        });
+
+        // Function to load columns based on selected table
+        function loadColumns() {
+            const table = document.getElementById('table').value;
+            const describeColumnSelect = document.getElementById('describe_column');
+            const filterColumnSelect = document.getElementById('column');
+            const xColumnSelect = document.getElementById('x_column');
+            const yColumnSelect = document.getElementById('y_column');
+            
+            fetch("{{ url_for('get_columns') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ table: table })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.columns) {
+                    // Clear existing options
+                    describeColumnSelect.innerHTML = "";
+                    filterColumnSelect.innerHTML = "";
+                    xColumnSelect.innerHTML = "";
+                    yColumnSelect.innerHTML = "";
+                    
+                    // Populate dropdowns with column options
+                    data.columns.forEach(column => {
+                        describeColumnSelect.add(new Option(column, column));
+                        filterColumnSelect.add(new Option(column, column));
+                        xColumnSelect.add(new Option(column, column));
+                        yColumnSelect.add(new Option(column, column));
+                    });
+                }
+            })
+            .catch(error => console.error("Error loading columns:", error));
+        }
+
+        // Initialize column options when the page loads
+        window.onload = loadColumns;
+    </script>
+
+</body>
+</html>
